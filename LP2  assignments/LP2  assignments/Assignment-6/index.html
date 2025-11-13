@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin Login — Assignment 6</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="admin-login">
+    <div class="card">
+      <h2>Admin Login</h2>
+      <form id="loginForm">
+        <label>Username
+          <input id="user" name="user" autocomplete="username" required>
+        </label>
+        <label>Password
+          <input id="pass" name="pass" type="password" autocomplete="current-password" required>
+        </label>
+        <div class="actions">
+          <button type="submit" class="btn">Sign in</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const u = document.getElementById('user').value.trim();
+      const p = document.getElementById('pass').value.trim();
+      if(u === 'admin' && p === 'admin'){
+        window.location.href = 'dashboard.html';
+      } else {
+        alert('Invalid credentials (UI only). Use admin/admin');
+      }
+    });
+  </script>
+</body>
+</html>

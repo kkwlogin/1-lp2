@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin Dashboard — Assignment 6</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>Admin Dashboard</h1>
+    <div class="top-actions">
+      <button id="btnLogout" class="btn small">Logout</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li class="active">Events</li>
+          <li>Registrations</li>
+          <li>Settings</li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div class="toolbar">
+        <input id="search" placeholder="Search events..." class="sx">
+        <button id="btnAdd" class="btn">+ Add Event</button>
+      </div>
+
+      <div class="table-wrap">
+        <table class="table" id="eventsTable">
+          <thead>
+            <tr><th>ID</th><th>Event</th><th>Duration</th><th>Actions</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <p id="noRows" class="empty hidden">No events available.</p>
+    </main>
+  </div>
+
+  <!-- Edit Modal (UI only) -->
+  <div id="modal" class="modal hidden" style="display:none;">
+    <div class="modal-box">
+      <h3>Edit Event</h3>
+      <form id="editForm">
+        <input type="hidden" id="editId">
+        <label>Name<br><input id="editName" required></label>
+        <label>Duration<br><input id="editDuration" required></label>
+        <div class="actions">
+          <button type="submit" class="btn">Save</button>
+          <button type="button" id="cancel" class="btn ghost">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

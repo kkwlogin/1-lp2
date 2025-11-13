@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hill Station Event Registration</title>
+  <link rel="stylesheet" href="style5.css">
+</head>
+<body>
+  <div class="container">
+    <div class="form-box">
+      <h1>🏔️ Hill Station Event</h1>
+      <p class="subtitle">Register for your favorite hill-station adventure</p>
+      
+      <form action="save.php" method="POST" id="regForm" onsubmit="validateForm(event)">
+        <div class="form-group">
+          <label for="name">Full Name <span class="req">*</span></label>
+          <input type="text" name="name" id="name" placeholder="e.g., Raj Kumar" required>
+          <div class="err hidden" id="name-err"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address <span class="req">*</span></label>
+          <input type="email" name="email" id="email" placeholder="your@email.com" required>
+          <div class="err hidden" id="email-err"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="contact">Mobile Number <span class="req">*</span></label>
+          <input type="tel" name="contact" id="contact" placeholder="10-digit number" maxlength="10" required>
+          <div class="err hidden" id="contact-err"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="event">Select Event <span class="req">*</span></label>
+          <select name="event" id="event" required>
+            <option value="">-- Choose an event --</option>
+            <option value="Manali Trek">Manali Trek (5 days)</option>
+            <option value="Shimla Tour">Shimla Tour (3 days)</option>
+            <option value="Nainital Lake">Nainital Lake (4 days)</option>
+            <option value="Darjeeling Explore">Darjeeling Explore (6 days)</option>
+          </select>
+          <div class="err hidden" id="event-err"></div>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">Register Now</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function validateForm(e) {
+      let valid = true;
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const contact = document.getElementById('contact').value.trim();
+      const event = document.getElementById('event').value.trim();
+
+      // Clear previous errors
+      document.getElementById('name-err').classList.add('hidden');
+      document.getElementById('email-err').classList.add('hidden');
+      document.getElementById('contact-err').classList.add('hidden');
+      document.getElementById('event-err').classList.add('hidden');
+
+      // Validate name
+      if (name.length < 2) {
+        document.getElementById('name-err').textContent = 'Name must be at least 2 characters';
+        document.getElementById('name-err').classList.remove('hidden');
+        valid = false;
+      }
+
+      // Validate email
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        document.getElementById('email-err').textContent = 'Enter a valid email address';
+        document.getElementById('email-err').classList.remove('hidden');
+        valid = false;
+      }
+
+      // Validate contact (10 digits, starts with 6-9)
+      if (!/^[6-9][0-9]{9}$/.test(contact)) {
+        document.getElementById('contact-err').textContent = 'Enter valid 10-digit mobile number';
+        document.getElementById('contact-err').classList.remove('hidden');
+        valid = false;
+      }
+
+      // Validate event
+      if (!event) {
+        document.getElementById('event-err').textContent = 'Please select an event';
+        document.getElementById('event-err').classList.remove('hidden');
+        valid = false;
+      }
+
+      if (!valid) {
+        e.preventDefault();
+      }
+    }
+  </script>
+</body>
+</html>

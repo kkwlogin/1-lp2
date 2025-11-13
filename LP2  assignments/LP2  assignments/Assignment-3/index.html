@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Registration Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="form-box">
+      <h1>Event Registration</h1>
+      <p class="subtitle">Register for our upcoming hill station trips</p>
+
+      <form id="regForm" novalidate>
+        <div class="form-group">
+          <label for="name">Full Name <span class="req">*</span></label>
+          <input type="text" id="name" placeholder="Enter your full name" required>
+          <small class="err" id="nameErr"></small>
+          <small class="ok" id="nameOk">✓ Valid</small>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address <span class="req">*</span></label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+          <small class="err" id="emailErr"></small>
+          <small class="ok" id="emailOk">✓ Valid</small>
+        </div>
+
+        <div class="form-group">
+          <label for="mobile">Mobile Number <span class="req">*</span></label>
+          <input type="tel" id="mobile" placeholder="10-digit number" required>
+          <small class="err" id="mobileErr"></small>
+          <small class="ok" id="mobileOk">✓ Valid</small>
+        </div>
+
+        <div class="form-group">
+          <label for="event">Select Event <span class="req">*</span></label>
+          <select id="event" required>
+            <option value="">-- Choose an event --</option>
+            <option value="misty-mountains">Misty Mountains Getaway (₹7,499)</option>
+            <option value="sunrise-peak">Sunrise Peak Hike (₹1,299)</option>
+            <option value="forest-retreat">Forest Retreat (₹3,999)</option>
+          </select>
+          <small class="err" id="eventErr"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Additional Message (Optional)</label>
+          <textarea id="message" rows="3" placeholder="Any special requirements?"></textarea>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="terms" required>
+          <label for="terms">I agree to terms and conditions <span class="req">*</span></label>
+          <small class="err" id="termsErr"></small>
+        </div>
+
+        <button type="submit" class="btn-submit">Register Now</button>
+        <button type="reset" class="btn-reset">Clear Form</button>
+      </form>
+
+      <div class="success hidden" id="successMsg">
+        <h4>Registration Successful!</h4>
+        <p id="successText"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="validation.js"></script>
+</body>
+</html>

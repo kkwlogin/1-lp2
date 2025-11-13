@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Alpine Escape</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a class="logo" href="index.html">Alpine Escape</a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="events.html">Trips</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section style="padding:36px 0;display:grid;grid-template-columns:1fr;gap:18px">
+      <div>
+        <span class="kicker" style="color:var(--accent);font-weight:700">Contact</span>
+        <h1>Booking & Inquiries</h1>
+        <p style="color:var(--muted)">Use the form below to request a booking or ask questions about trips and availability.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr;gap:16px">
+        <div class="card">
+          <form class="contact-form" action="#" onsubmit="alert('Demo form — booking request recorded locally only.'); return false;">
+            <label for="name">Full name</label>
+            <input id="name" type="text" placeholder="Full name" required>
+
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="you@example.com" required>
+
+            <label for="phone">Phone</label>
+            <input id="phone" type="text" placeholder="+91 9xxxx xxxxx">
+
+            <label for="trip">Interested Trip</label>
+            <input id="trip" type="text" placeholder="Trip name (e.g. Misty Mountains Getaway)">
+
+            <label for="message">Message / Requirements</label>
+            <textarea id="message" placeholder="Any special requests or questions"></textarea>
+
+            <div style="display:flex;gap:8px">
+              <button class="btn" type="submit">Request Booking</button>
+              <a class="secondary" href="index.html">Back home</a>
+            </div>
+          </form>
+        </div>
+
+        <aside class="card">
+          <h3>Office & Support</h3>
+          <p style="color:var(--muted)">Alpine Escape<br>Hill View Complex<br>Pune, India</p>
+          <p style="color:var(--muted)">Email: bookings@alpine-escape.example<br>Phone: +91 98765 43210</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">&copy; 2025 Alpine Escape</footer>
+</body>
+</html>
