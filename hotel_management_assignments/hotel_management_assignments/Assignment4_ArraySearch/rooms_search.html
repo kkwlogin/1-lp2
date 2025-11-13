@@ -1,0 +1,19 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Room Search</title><link rel="stylesheet" href="styles.css"></head><body>
+<div class="container">
+<header class="header"><div class="brand">Sunrise Hotel</div></header>
+<main>
+  <section class="card"><h2>Room Search (JS array)</h2><input id="q" placeholder="search" oninput="render()" style="padding:8px;width:100%;max-width:320px"></section>
+  <section id="out"></section>
+</main><footer class="footer">© 2025 Sunrise Hotel</footer></div>
+<script>
+const rooms=[{name:'Deluxe Room',price:2499},{name:'Executive Suite',price:4199},{name:'Family Room',price:3299},{name:'Economy Room',price:1299}];
+function render(){
+  const q=document.getElementById('q').value.toLowerCase();
+  const out=document.getElementById('out'); out.innerHTML='';
+  rooms.filter(r=>r.name.toLowerCase().includes(q)).forEach(r=>{
+    const el=document.createElement('div'); el.className='card'; el.innerHTML=`<h3>${r.name}</h3><p>₹${r.price}</p>`; out.appendChild(el);
+  });
+}
+render();
+</script></body></html>

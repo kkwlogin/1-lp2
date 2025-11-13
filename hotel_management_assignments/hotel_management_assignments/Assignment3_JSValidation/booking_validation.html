@@ -1,0 +1,24 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Booking Validation</title><link rel="stylesheet" href="styles.css"></head><body>
+<div class="container"><header class="header"><div class="brand">Sunrise Hotel</div></header>
+<main><section class="card"><h2>Booking Form (Validation Demo)</h2>
+<form id="f" onsubmit="return validate()">
+  <label>Full Name<input id="name" type="text" style="width:100%;padding:8px"></label>
+  <label>Email<input id="email" type="email" style="width:100%;padding:8px"></label>
+  <label>Phone<input id="phone" type="tel" style="width:100%;padding:8px"></label>
+  <label>Room Type<select id="room" style="width:100%;padding:8px"><option value=''>--</option><option>Deluxe</option></select></label>
+  <div style="margin-top:8px"><button class="btn">Submit</button></div>
+  <p id="msg" style="font-weight:600"></p>
+</form></section></main><footer class="footer">© 2025 Sunrise Hotel</footer></div>
+<script>
+function validate(){
+  const n=document.getElementById('name').value.trim();
+  const e=document.getElementById('email').value.trim();
+  const p=document.getElementById('phone').value.trim();
+  const m=document.getElementById('msg'); m.style.color='red';
+  if(n.length<3){m.textContent='Name too short';return false}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)){m.textContent='Email invalid';return false}
+  if(!/^[6-9]\d{9}$/.test(p)){m.textContent='Phone invalid';return false}
+  m.style.color='green';m.textContent='All good — would submit to server.';return false;
+}
+</script></body></html>

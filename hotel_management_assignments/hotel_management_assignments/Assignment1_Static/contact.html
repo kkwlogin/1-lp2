@@ -1,0 +1,39 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Contact & Booking — Sunrise Hotel</title><link rel="stylesheet" href="styles.css"></head><body>
+<div class="container">
+  <header class="header"><div class="brand">Sunrise Hotel</div><nav class="nav"><a href="index.html">Home</a><a href="rooms.html">Rooms</a><a href="about.html">About</a><a href="contact.html" class="active">Contact</a></nav></header>
+  <main>
+    <section class="card"><h2>Contact & Booking</h2><p>Fill to request booking — front-end validation only.</p></section>
+    <section class="card" style="max-width:520px;margin-top:10px">
+      <form id="booking" onsubmit="return validate()">
+        <label>Full Name<input id="name" type="text" style="width:100%;padding:8px;margin-top:6px"></label>
+        <label>Email<input id="email" type="email" style="width:100%;padding:8px;margin-top:6px"></label>
+        <label>Phone<input id="phone" type="tel" style="width:100%;padding:8px;margin-top:6px"></label>
+        <label>Room Type<select id="room" style="width:100%;padding:8px;margin-top:6px"><option value="">--Select--</option><option>Deluxe Room</option><option>Executive Suite</option><option>Family Room</option><option>Economy Room</option></select></label>
+        <label>Check-in<input id="in" type="date" style="width:100%;padding:8px;margin-top:6px"></label>
+        <label>Check-out<input id="out" type="date" style="width:100%;padding:8px;margin-top:6px"></label>
+        <div style="margin-top:10px"><button class="btn" type="submit">Request Booking</button></div>
+        <p id="msg" style="font-weight:600;margin-top:8px"></p>
+      </form>
+    </section>
+  </main>
+  <footer class="footer">© 2025 Sunrise Hotel</footer>
+</div>
+<script>
+function validate(){
+  const name=document.getElementById('name').value.trim();
+  const email=document.getElementById('email').value.trim();
+  const phone=document.getElementById('phone').value.trim();
+  const room=document.getElementById('room').value;
+  const inD=document.getElementById('in').value; const outD=document.getElementById('out').value;
+  const msg=document.getElementById('msg'); msg.style.color='red';
+  if(name.length<3){msg.textContent='Enter valid name';return false}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg.textContent='Enter valid email';return false}
+  if(!/^[6-9]\d{9}$/.test(phone)){msg.textContent='Enter valid 10-digit Indian mobile';return false}
+  if(!room){msg.textContent='Select room';return false}
+  if(!inD||!outD){msg.textContent='Select dates';return false}
+  if(new Date(outD)<=new Date(inD)){msg.textContent='Check-out must be after check-in';return false}
+  msg.style.color='green'; msg.textContent='Booking valid (not submitted).'; return false;
+}
+</script>
+</body></html>

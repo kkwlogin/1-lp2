@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Rooms — Sunrise Hotel</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<div class="container">
+  <header class="header">
+    <div class="brand">Sunrise Hotel</div>
+    <nav class="nav">
+      <a href="index.html">Home</a><a href="rooms.html" class="active">Rooms</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Available Rooms</h2>
+      <p>Use the search box to filter rooms.</p>
+      <input id="q" placeholder="search (e.g. suite, balcony)" oninput="filter()" style="padding:8px;border-radius:6px;border:1px solid #e6eef8;width:100%;max-width:360px">
+    </section>
+
+    <section class="room-list" id="list">
+      <article class="room-card"><h3>Deluxe Room</h3><p>1 Queen • City view</p><p>₹2,499/night</p></article>
+      <article class="room-card"><h3>Executive Suite</h3><p>1 King • Work desk • Breakfast</p><p>₹4,199/night</p></article>
+      <article class="room-card"><h3>Family Room</h3><p>2 Double • Balcony</p><p>₹3,299/night</p></article>
+      <article class="room-card"><h3>Economy Room</h3><p>Single/Double • Budget</p><p>₹1,299/night</p></article>
+    </section>
+  </main>
+
+  <footer class="footer">© 2025 Sunrise Hotel</footer>
+</div>
+
+<script>
+function filter(){
+  const q = document.getElementById('q').value.toLowerCase();
+  document.querySelectorAll('.room-card').forEach(card=>{
+    card.style.display = card.innerText.toLowerCase().includes(q) ? '' : 'none';
+  });
+}
+</script>
+</body></html>

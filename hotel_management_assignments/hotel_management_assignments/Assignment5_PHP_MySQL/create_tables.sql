@@ -1,0 +1,13 @@
+-- Run these SQL commands in MySQL
+CREATE DATABASE IF NOT EXISTS hotel_db;
+USE hotel_db;
+CREATE TABLE IF NOT EXISTS bookings (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  phone VARCHAR(15) NOT NULL,
+  room_type VARCHAR(50) NOT NULL,
+  checkin DATE NOT NULL,
+  checkout DATE NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
