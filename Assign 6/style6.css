@@ -1,0 +1,103 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f6f8fa;
+  margin: 0;
+  padding: 0;
+}
+
+/* Login Box */
+.login-box {
+  width: 320px;
+  background: white;
+  padding: 20px;
+  margin: 100px auto;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  text-align: center;
+}
+.login-box h2 {
+  margin-bottom: 15px;
+  color: #007bff;
+}
+.login-box input {
+  width: 90%;
+  padding: 8px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.login-box button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.login-box button:hover { background-color: #0056b3; }
+#msg { color: red; margin-top: 10px; }
+
+/* Dashboard */
+header {
+  background-color: #007bff;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container {
+  width: 90%;
+  max-width: 800px;
+  margin: 30px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+#addEventBtn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#addEventBtn:hover {
+  background-color: #218838;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+th {
+  background-color: #007bff;
+  color: white;
+}
+button.action {
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+.update { background-color: #ffc107; color: #000; }
+.delete { background-color: #dc3545; }
+footer {
+  background: #007bff;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
+}

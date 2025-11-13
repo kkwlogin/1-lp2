@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Registration (PHP)</title>
+  <link rel="stylesheet" href="style5.css">
+</head>
+<body>
+  <header><h1>Event Registration Form</h1></header>
+
+  <div class="container">
+    <form action="save.php" method="POST">
+      <label for="name">Full Name:</label>
+      <input type="text" name="name" id="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" required>
+
+      <label for="contact">Contact Number:</label>
+      <input type="text" name="contact" id="contact" required>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <footer>&copy; 2025 Event Management System</footer>
+</body>
+</html>

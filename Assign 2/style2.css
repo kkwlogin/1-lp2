@@ -1,0 +1,111 @@
+/* Base Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+header {
+  background-color: #007bff;
+  color: white;
+  padding: 15px 0;
+  text-align: center;
+}
+
+nav {
+  background-color: #0056b3;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 14px 20px;
+  display: inline-block;
+}
+
+nav a:hover {
+  background-color: #003f7f;
+}
+
+.container {
+  width: 80%;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+footer {
+  text-align: center;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 0;
+  margin-top: 20px;
+}
+
+/* --------------------------- */
+/* 🌐 RESPONSIVE DESIGN BELOW  */
+/* --------------------------- */
+
+/* For tablets (screen width ≤ 768px) */
+@media (max-width: 768px) {
+  nav a {
+    display: block;
+    padding: 10px;
+    border-bottom: 1px solid #004080;
+  }
+
+  .container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .container h2 {
+    font-size: 1.25rem;
+  }
+}
+
+/* For mobile phones (screen width ≤ 480px) */
+@media (max-width: 480px) {
+  header, footer {
+    padding: 10px 0;
+  }
+
+  header h1 {
+    font-size: 1.2rem;
+    padding: 0 10px;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .container {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .container p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  footer {
+    font-size: 0.85rem;
+  }
+}

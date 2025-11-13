@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="style6.css" />
+</head>
+<body>
+  <header>
+    <h1>Admin Dashboard</h1>
+    <button id="logoutBtn">Logout</button>
+  </header>
+
+  <div class="container">
+    <div class="top-bar">
+      <h2>Event Management</h2>
+      <button id="addEventBtn">+ Add Event</button>
+    </div>
+
+    <table id="eventTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Event Name</th>
+          <th>Category</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Events will load here -->
+      </tbody>
+    </table>
+  </div>
+
+  <footer>&copy; 2025 Event Management System</footer>
+  <script src="script6.js"></script>
+</body>
+</html>

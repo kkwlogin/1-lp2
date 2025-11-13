@@ -1,0 +1,21 @@
+CREATE TABLE participants (
+  id INT(11) AUTO_INCREMENT PRIMARY KEY,
+  event_name VARCHAR(100) NOT NULL,
+  participant_name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  contact VARCHAR(15) NOT NULL
+);
+   
+
+
+INSERT INTO participants (event_name, participant_name, email, contact) VALUES
+('Python Workshop', 'Rahul Sharma', 'rahul@gmail.com', '9876543210'),
+('Python Workshop', 'Anjali Verma', 'anjali@gmail.com', '8765432190'),
+('Data Science Meetup', 'Karan Mehta', 'karan@gmail.com', '9998887776'),
+('Data Science Meetup', 'Sneha Nair', 'sneha@gmail.com', '9988776655'),
+('Web Dev Basics', 'Neha Joshi', 'neha@gmail.com', '9911223344'),
+('Web Dev Basics', 'Amit Patel', 'amit@gmail.com', '8899776655'),
+('AI Bootcamp', 'Rohan Singh', 'rohan@gmail.com', '9090909090'),
+('AI Bootcamp', 'Priya Das', 'priya@gmail.com', '8787878787'),
+('Bootstrap Design', 'Vikas Rao', 'vikas@gmail.com', '7008009000'),
+('Bootstrap Design', 'Manisha Gupta', 'manisha@gmail.com', '8123456789');

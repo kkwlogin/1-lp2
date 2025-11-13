@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event List</title>
+  <link rel="stylesheet" href="style4.css">
+</head>
+<body>
+  <header>
+    <h1>Event List</h1>
+  </header>
+
+  <div class="container">
+    <div class="controls">
+      <input type="text" id="searchBox" placeholder="Search event (e.g. Python)">
+      <select id="filterSelect">
+        <option value="all">All Categories</option>
+        <option value="python">Python</option>
+        <option value="javascript">JavaScript</option>
+        <option value="bootstrap">Bootstrap</option>
+        <option value="data">Data Science</option>
+      </select>
+    </div>
+
+    <ul id="eventList"></ul>
+  </div>
+
+  <footer>
+    &copy; 2025 Event Management System
+  </footer>
+
+  <script src="script4.js"></script>
+</body>
+</html>
