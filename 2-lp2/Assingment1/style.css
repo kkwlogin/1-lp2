@@ -1,0 +1,29 @@
+* { box-sizing: border-box; }
+body { font-family: Arial, Helvetica, sans-serif; margin: 0; line-height: 1.5; color: #222; }
+.container { max-width: 960px; margin: 0 auto; padding: 1rem; }
+.site-header { background: #0a74da; color: #fff; }
+.site-header .container { display: flex; align-items: center; justify-content: space-between; }
+.logo { margin: 0; padding: 0.75rem 0; font-size: 1.25rem; }
+.main-nav a { color: #fff; text-decoration: none; margin-left: 1rem; }
+.main-nav a:hover { text-decoration: underline; }
+.hero { padding: 2rem 0; text-align: center; }
+.btn { display: inline-block; padding: 0.5rem 1rem; background: #ff7a00; color: #fff; text-decoration: none; border: none; border-radius: 4px; cursor: pointer; }
+.small-btn { display:inline-block; padding: 0.25rem 0.5rem; border: 1px solid #0a74da; background: transparent; text-decoration: none; border-radius: 3px; }
+.features { display: flex; gap: 1rem; padding-bottom: 2rem; }
+.card { flex: 1; background: #f8f8f8; padding: 1rem; border-radius: 6px; }
+.event-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+.event-table th, .event-table td { border: 1px solid #ddd; padding: 0.5rem; text-align: left; }
+.event-table thead { background: #f0f0f0; }
+.site-footer { background: #222; color: #ddd; padding: 1rem 0; margin-top: 2rem; }
+.site-footer p { margin: 0; text-align: center; }
+.contact-form label { display:block; margin-top: 0.75rem; }
+.contact-form input, .contact-form textarea { width: 100%; padding: 0.5rem; margin-top: 0.25rem; border: 1px solid #ccc; border-radius: 4px; }
+.small { max-width: 600px; }
+
+
+/* Responsive: single column on small screens */
+@media (max-width: 700px) {
+.features { flex-direction: column; }
+.site-header .container { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+.main-nav a { margin-left: 0; margin-right: 1rem; display: inline-block; }
+}

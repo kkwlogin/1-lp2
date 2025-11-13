@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Login - Assignment6</title>
+  <link rel="stylesheet" href="admin_style.css">
+  <style> /* small overrides */ .login-card{max-width:420px;margin:60px auto;padding:18px;background:#fff;border-radius:8px;box-shadow:0 6px 16px rgba(0,0,0,0.06)} label{display:block;margin-top:8px} input{width:100%;padding:8px;border:1px solid #ddd;border-radius:6px} .error{color:#b71c1c;margin-top:8px}</style>
+</head>
+<body>
+  <div class="container">
+    <div class="login-card">
+      <h2>Admin Login</h2>
+      <p class="small">Use <strong>admin</strong> / <strong>admin123</strong> (demo only)</p>
+      <label for="user">Username</label>
+      <input id="user" type="text" placeholder="admin">
+      <label for="pass">Password</label>
+      <input id="pass" type="password" placeholder="admin123">
+      <div class="error" id="loginError"></div>
+      <div class="ml-12">
+        <button class="btn" id="loginBtn">Login</button>
+        <a class="btn ghost ml-8" href="../Assignment4/Index.html">Back</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('loginBtn').addEventListener('click', function(){
+      const u = document.getElementById('user').value.trim();
+      const p = document.getElementById('pass').value;
+      const err = document.getElementById('loginError');
+      err.textContent = '';
+      if (u === 'admin' && p === 'admin123'){
+        // simple client-side 'login'
+        window.location.href = 'admin_dashboard.html';
+      } else {
+        err.textContent = 'Invalid credentials (demo)';
+      }
+    });
+  </script>
+</body>
+</html>

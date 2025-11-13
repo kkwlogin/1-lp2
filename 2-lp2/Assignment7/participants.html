@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Participants - Assignment7</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;background:#f7f9fb;color:#222;padding:20px}
+    .container{max-width:900px;margin:0 auto}
+    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+    select{padding:8px;border:1px solid #ccc;border-radius:6px}
+    table{width:100%;border-collapse:collapse;margin-top:12px;background:#fff;border-radius:6px;overflow:hidden}
+    th,td{padding:10px;border-bottom:1px solid #eef2f7;text-align:left}
+    th{background:#fafcff}
+    tr:last-child td{border-bottom:none}
+    .count{color:#666;margin-top:8px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Participant List</h1>
+      <div>
+        <label for="eventSelect" class="small">Event:</label>
+        <select id="eventSelect" aria-label="Select event"></select>
+      </div>
+    </header>
+
+    <p id="resultCount" class="count">Showing 0 participants</p>
+
+    <table id="participantsTable" aria-live="polite">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Mobile</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script>
+    // static JSON (embed for simplicity)
+    const participants = [
+      { event: 'Intercollege Football Cup', name: 'Alice Johnson', email: 'alice.j@example.com', mobile: '0712345678' },
+      { event: 'Intercollege Football Cup', name: 'David Lee', email: 'david.lee@example.com', mobile: '0723456789' },
+      { event: 'City Marathon', name: 'Maria Gomez', email: 'maria.g@example.com', mobile: '0734567890' },
+      { event: 'City Marathon', name: 'Hassan Ali', email: 'hassan.a@example.com', mobile: '0745678901' },
+      { event: 'Junior Basketball League', name: 'Sara Khan', email: 'sara.k@example.com', mobile: '0756789012' },
+      { event: 'Junior Basketball League', name: 'Tom Brown', email: 'tom.b@example.com', mobile: '0767890123' }
+    ];
+
+    // derive unique list of events
+    const events = Array.from(new Set(participants.map(p => p.event)));
+
+    const select = document.getElementById('eventSelect');
+    const tbody = document.querySelector('#participantsTable tbody');
+    const resultCount = document.getElementById('resultCount');
+
+    function populateEvents(){
+      events.forEach((ev, i) => {
+        const opt = document.createElement('option');
+        opt.value = ev;
+        opt.textContent = ev;
+        select.appendChild(opt);
+      });
+    }
+
+    function renderList(eventName){
+      const list = participants.filter(p => p.event === eventName);
+      tbody.innerHTML = '';
+      if (list.length === 0){
+        const tr = document.createElement('tr');
+        tr.innerHTML = '<td colspan="4">No participants for this event</td>';
+        tbody.appendChild(tr);
+        resultCount.textContent = 'Showing 0 participants';
+        return;
+      }
+      list.forEach((p, idx) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${idx+1}</td><td>${p.name}</td><td>${p.email}</td><td>${p.mobile}</td>`;
+        tbody.appendChild(tr);
+      });
+      resultCount.textContent = `Showing ${list.length} participant${list.length===1?'':'s'}`;
+    }
+
+    // wire events
+    select.addEventListener('change', function(){ renderList(this.value); });
+
+    // initial setup
+    populateEvents();
+    if (events.length) {
+      select.value = events[0];
+      renderList(events[0]);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Assignment 4 - Event List</title>
+	<style>
+		body{font-family:Arial,Helvetica,sans-serif;background:#f6f8fb;color:#222;padding:20px}
+		.container{max-width:800px;margin:0 auto}
+		header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+		input[type="search"]{padding:8px 10px;width:60%;border:1px solid #ccc;border-radius:6px}
+		ul{list-style:none;padding:0;margin-top:12px}
+		li{background:#fff;margin-bottom:8px;padding:12px;border-radius:6px;border:1px solid #e6e9ef}
+		.count{color:#666;font-size:0.95rem}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<h1>Assignment 4 — Events</h1>
+			<div>
+				<label for="search" class="count">Search:</label>
+				<input id="search" type="search" placeholder="Type keyword to filter events">
+			</div>
+		</header>
+
+		<p class="count" id="resultCount">Showing 0 events</p>
+
+		<ul id="eventsList" aria-live="polite"></ul>
+	</div>
+
+	<script>
+		// Simple array of event names
+		const events = [
+			'Intercollege Football Cup',
+			'City Marathon',
+			'Junior Basketball League',
+			'Community Tennis Day',
+			'Swimming Gala',
+			'National Cricket Championship',
+			'Youth Badminton Tournament',
+			'Open Track & Field Meet'
+		];
+
+		const eventsListEl = document.getElementById('eventsList');
+		const searchEl = document.getElementById('search');
+		const resultCountEl = document.getElementById('resultCount');
+
+		// Render function: displays provided array of names
+		function render(list) {
+			eventsListEl.innerHTML = '';
+			if (!list.length) {
+				eventsListEl.innerHTML = '<li>No events found</li>';
+				resultCountEl.textContent = 'Showing 0 events';
+				return;
+			}
+			const fragment = document.createDocumentFragment();
+			list.forEach(name => {
+				const li = document.createElement('li');
+				li.textContent = name;
+				fragment.appendChild(li);
+			});
+			eventsListEl.appendChild(fragment);
+			resultCountEl.textContent = `Showing ${list.length} event${list.length === 1 ? '' : 's'}`;
+		}
+
+		// Simple case-insensitive filter
+		function filterEvents(q) {
+			const term = q.trim().toLowerCase();
+			if (!term) return events.slice();
+			return events.filter(name => name.toLowerCase().includes(term));
+		}
+
+		// Wire up search input
+		searchEl.addEventListener('input', function (e) {
+			const filtered = filterEvents(e.target.value);
+			render(filtered);
+		});
+
+		// Initial render
+		render(events);
+	</script>
+</body>
+</html>

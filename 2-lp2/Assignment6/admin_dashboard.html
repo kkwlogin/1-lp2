@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Dashboard - Assignment6</title>
+  <link rel="stylesheet" href="admin_style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Admin Dashboard</h1>
+      <div>
+        <span class="small">Records: <strong id="totalCount">0</strong></span>
+        <button id="addBtn" class="btn ml-12">Add Event</button>
+        <a class="btn ghost ml-8" href="admin_login.html">Logout</a>
+      </div>
+    </div>
+
+    <div class="admin-panel">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Event</th>
+            <th>Date</th>
+            <th>Venue</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="eventsTbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true">
+      <div class="modal-card">
+      <h3 id="modalTitle">Edit Event</h3>
+      <input type="hidden" id="evIndex" value="-1">
+      <div class="form-row">
+        <label for="evName">Event Name</label>
+        <input id="evName" aria-label="Event Name" placeholder="Event title">
+      </div>
+      <div class="form-row">
+        <label for="evDate">Date</label>
+        <input id="evDate" type="date" aria-label="Event Date">
+      </div>
+      <div class="form-row">
+        <label for="evVenue">Venue</label>
+        <input id="evVenue" aria-label="Event Venue" placeholder="Venue name">
+      </div>
+      <div class="modal-actions">
+        <button id="saveBtn" class="btn">Save</button>
+        <button id="closeBtn" class="btn ghost">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="admin_script.js"></script>
+</body>
+</html>

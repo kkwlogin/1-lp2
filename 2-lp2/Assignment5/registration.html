@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Simple Registration Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f2f2f2;
+        padding: 20px;
+    }
+    .box {
+        max-width: 420px;
+        margin: auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 6px;
+        box-shadow: 0 0 8px #ccc;
+    }
+    h2 {
+        text-align: center;
+    }
+    label {
+        font-weight: bold;
+    }
+    input {
+        width: 100%;
+        padding: 8px;
+        margin: 8px 0 16px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    button {
+        width: 100%;
+        padding: 10px;
+        background: #0a74da;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    button:hover {
+        background: #055ab0;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>Registration Form</h2>
+    <!-- main form: submit to register.php using POST -->
+    <form action="register.php" method="post">
+        <label for="fullname">Full Name</label>
+        <input id="fullname" name="fullname" type="text" placeholder="Enter your name" required>
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="Enter your email" required>
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" placeholder="Create password" required>
+
+        <label for="mobile">Mobile Number</label>
+        <input id="mobile" name="mobile" type="tel" pattern="\d{10}" title="Enter exactly 10 digits" placeholder="10 digit number" required>
+
+        <button type="submit">Register</button>
+    </form>
+</div>
+
+</body>
+</html>
